@@ -6,6 +6,7 @@ const auras = {
     "purple": "Dignity and grace are your guiding lights today", 
     "yellow": "So bright and sunny, the optimism is infectious!"
 }; 
+const aurasColors = Object.keys(auras);
 
 //Define the meaningless philosophical questions to pose as an array
 const meaninglessQuestions = [
@@ -40,6 +41,11 @@ function generateRandomNumber(num) {
     return Math.floor(Math.random() * num);
 };
 
+//Define the random aura to select
+const randAura = generateRandomNumber(aurasColors.length)
+const selectedAura = aurasColors[randAura];
+
+
 //Define the random question to pose
 const randQuest = generateRandomNumber(meaninglessQuestions.length)
 
@@ -48,5 +54,11 @@ const randQuest = generateRandomNumber(meaninglessQuestions.length)
 const randWisd = generateRandomNumber(genericWisdom.length)
 
 
-console.log(meaninglessQuestions[randQuest]);
-console.log(genericWisdom[randWisd]);
+console.log(`Good day! \n
+Today, your aura seems to be ${selectedAura}: ${auras[selectedAura]}\n
+Based on this aura, we have a question to pose: \n
+${meaninglessQuestions[randQuest]}
+\n
+With that thought-provoking question to ponder, we leave you with this wisdom: \n
+${genericWisdom[randWisd]}\n
+Have a lovely day!`)
